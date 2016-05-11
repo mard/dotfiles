@@ -8,6 +8,7 @@ PackageInstaller.try_install('i3-wm')
 PackageInstaller.try_install('i3lock')
 PackageInstaller.try_install('i3status')
 PackageInstaller.try_install('feh')
+PackageInstaller.try_install('rxvt-unicode')
 
 sources = [os.path.join(dir, 'i3-config')]
 if socket.gethostname() == 'sunjammer':
