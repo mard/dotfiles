@@ -1,6 +1,7 @@
 [user]
     name = Mariusz Dziemianowicz
     email = mariusz@dziemianowi.cz
+    signingkey = 6A904867
 [color]
     diff = always
 [core]
