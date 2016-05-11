@@ -1,0 +1,18 @@
+[user]
+    name = Mariusz Dziemianowicz
+    email = mariusz@dziemianowi.cz
+[color]
+    diff = always
+[core]
+    editor = vim
+    autocrlf = false
+    eol = lf
+    whitespace = tab-in-indent
+[alias]
+    df = diff --color --color-words --abbrev
+    sw = show --color --color-words --abbrev
+    hist = log --pretty=format:\"%Cred%h%Creset %ad %Cblue%<(50,trunc)%s%Creset [%an <%ae>]%d\" --graph --date=short
+[color "diff"]
+    old = red reverse
+    new = green reverse
+    whitespace = blue reverse
