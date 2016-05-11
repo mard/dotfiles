@@ -1,0 +1,25 @@
+## GoClever TAB A73
+
+# background
+exec --no-startup-id feh --bg-fill ~/media/images/desktop
+
+# hide mouse in corner
+exec --no-startup-id xdotool mousemove 800 480
+
+# font
+font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+# set window border
+for_window [class="^.*"] border pixel 1
+new_window 1pixel
+
+# power button initiates suspend script
+bindcode 124 exec --no-startup-id sus
+
+# status bar
+bar {
+        status_command i3status | ~/.config/i3status/wrapper.py
+        position top
+        font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+}
+

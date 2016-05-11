@@ -1,0 +1,30 @@
+general {
+        output_format = "i3bar"
+        colors = true
+        interval = 15
+}
+
+order += "disk /"
+order += "wireless wlan0"
+order += "load"
+order += "tztime local"
+
+wireless wlan0 {
+        # format_up = "W: (%quality at %essid, %bitrate) %ip"
+        format_up = "%ip"
+        format_down = "offline"
+}
+
+tztime local {
+        format = "%a %d.%m %H:%M"
+}
+
+load {
+        format = "%1min"
+}
+
+disk "/" {
+        format = "%avail"
+        prefix_type = custom
+}
+

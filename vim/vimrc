@@ -1,0 +1,8 @@
+set nocompatible
+set backspace=indent,eol,start
+syntax on
+set number
+set tabstop=2
+set list
+set listchars=tab:>-,trail:.,extends:>,precedes:<
+
