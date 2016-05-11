@@ -2,6 +2,8 @@
     name = Mariusz Dziemianowicz
     email = mariusz@dziemianowi.cz
     signingkey = 6A904867
+[credential]
+    helper = cache --timeout=3600
 [color]
     diff = always
 [core]
