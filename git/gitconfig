@@ -14,7 +14,7 @@
 [alias]
     df = diff --color --color-words --abbrev
     sw = show --color --color-words --abbrev
-    hist = log --pretty=format:\"%Cred%h%Creset %ad %Cblue%<(50,trunc)%s%Creset [%an <%ae>]%d\" --graph --date=short
+    hist = log --pretty=format:\"%Cred%h%Creset %ad %C(cyan)%<(30,trunc)%s%Creset [%an <%ae>]%d\" --graph --date=short
 [color "diff"]
     old = red reverse
     new = green reverse
