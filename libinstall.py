@@ -75,7 +75,8 @@ class FileInstaller(object):
       for source in sources:
         with open(source) as fs:
             if comment_prefix:
-              ft.write('%s Merged from: %s%s' % (comment_prefix, source, os.linesep))
+              ft.write('%s Merge %s/%s from: %s%s'
+                % (comment_prefix, sources.index(source)+1, len(sources), source, os.linesep))
             ft.write(fs.read())
             ft.write(os.linesep)
 
