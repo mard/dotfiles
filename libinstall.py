@@ -24,15 +24,17 @@ class FileInstaller(object):
   def has_executable(program):
     return shutil.which(program) is not None
 
+  def check_exists(path):
+    if os.path.exists(path):
+      raise RuntimeError('Target file %s exists and is not a symlink.' % path)
+
   @staticmethod
-  def create_dir(dir):
-    dir = os.path.abspath(os.path.expanduser(dir))
-    if os.path.islink(dir):
-      print('Removing old symlink: %s ...' % target)
-      os.unlink(dir)
-    if not os.path.exists(dir):
-      print('Creating directory %s...' % dir)
-      os.makedirs(dir)
+  def create_dir(path):
+    path = os.path.abspath(os.path.expanduser(path))
+    FileInstaller.remove_symlink(path)
+    if not os.path.exists(path):
+      print('Creating directory %s...' % path)
+      os.makedirs(path)
 
   @staticmethod
   def create_file(path):
@@ -51,11 +53,7 @@ class FileInstaller(object):
     target = os.path.expanduser(target)
     if target.endswith('/') or target.endswith('\\'):
       target = os.path.join(target, os.path.basename(source))
-
-    if os.path.islink(target):
-      print('Removing old symlink: %s ...' % target)
-      os.unlink(target)
-
+    FileInstaller.remove_symlink(target)
     print('Copying %s to %s...' % (source, target))
     FileInstaller.create_dir(os.path.dirname(target))
     shutil.copy(source, target)
@@ -67,11 +65,7 @@ class FileInstaller(object):
     target = os.path.expanduser(target)
     if target.endswith('/') or target.endswith('\\'):
       target = os.path.join(target, os.path.basename(source))
-
-    if os.path.islink(target):
-      print('Removing old symlink: %s...' % target)
-      os.unlink(target)
-
+    FileInstaller.remove_symlink(target)
     FileInstaller.create_dir(os.path.dirname(target))
     print('Merging %s to %s...' % (sources, target))
     with open(target, 'w') as ft:
@@ -91,16 +85,18 @@ class FileInstaller(object):
     target = os.path.expanduser(target)
     if target.endswith('/') or target.endswith('\\'):
       target = os.path.join(target, os.path.basename(source))
-
-    if os.path.islink(target):
-      print('Removing old symlink: %s ...' % target)
-      os.unlink(target)
-    elif os.path.exists(target):
-      raise RuntimeError('Target file %s exists and is not a symlink.' % target)
-
-    print('Linking %s to %s...' % (source, target))
+    FileInstaller.remove_symlink(target)
+    FileInstaller.check_exists(target)
     FileInstaller.create_dir(os.path.dirname(target))
+    print('Linking %s to %s...' % (source, target))
     os.symlink(source, target)
+
+  @staticmethod
+  def remove_symlink(path):
+    path = os.path.abspath(os.path.expanduser(path))
+    if os.path.islink(path):
+      print('Removing old symlink: %s ...' % path)
+      os.unlink(path)
 
 class CygwinPackageInstaller(object):
   name = 'cygwin'
