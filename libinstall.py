@@ -67,7 +67,7 @@ class FileInstaller(object):
     target = os.path.expanduser(target)
     if target.endswith('/') or target.endswith('\\'):
       target = os.path.join(target, os.path.basename(source))
-      
+
     if os.path.islink(target):
       print('Removing old symlink: %s...' % target)
       os.unlink(target)
@@ -80,6 +80,8 @@ class FileInstaller(object):
           % (comment_prefix, os.linesep))
       for source in sources:
         with open(source) as fs:
+            if comment_prefix:
+              ft.write('%s Merged from: %s%s' % (comment_prefix, source, os.linesep))
             ft.write(fs.read())
             ft.write(os.linesep)
 
