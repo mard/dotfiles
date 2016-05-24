@@ -5,3 +5,4 @@ dir = os.path.dirname(__file__)
 
 PackageInstaller.try_install('vim')
 FileInstaller.create_symlink(os.path.join(dir, 'vimrc'), '~/.vimrc')
+FileInstaller.create_symlink(os.path.join(dir, 'vundle'), '~/.vim/vundle')

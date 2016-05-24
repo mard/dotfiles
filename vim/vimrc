@@ -1,4 +1,18 @@
+" Vundle
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/vundle/
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'scrooloose/nerdtree'
+
+call vundle#end()
+filetype plugin indent on
+
+" Personal
 set backspace=indent,eol,start
 syntax on
 set number
