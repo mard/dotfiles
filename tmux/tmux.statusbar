@@ -16,8 +16,8 @@ if [ $? == 0 ]; then
 fi
 
 # volume
-vol=$(exec amixer get Master 2> /dev/null | egrep -o "[0-9]+%" | egrep -o "[0-9]*")
+vol=$(exec amixer get Master 2> /dev/null | egrep -o "[0-9]+%" | egrep -o "[0-9]*" | head -1)
 if [ $? == 0 ]; then
   printf "♪ $vol"
   printf " │ "
-fi;
+fi
