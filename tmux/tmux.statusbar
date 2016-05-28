@@ -2,21 +2,20 @@
 
 # battery status
 batc=$(cat /sys/class/power_supply/battery/capacity 2> /dev/null)
-#batc=65
 if [ $? == 0 ]; then
   printf "#[fg=red]♥ "
-  [ $batc -gt 75 ] && printf "#[fg=green]$batc" ||
-    [ $batc -gt 60 ] && printf "#[fg=yellow]$batc" ||
-    printf "#[fg=red]$batc"
+  ([ $batc -gt 75 ] && printf "#[fg=green]$batc") ||
+  ([ $batc -gt 60 ] && printf "#[fg=yellow]$batc") ||
+  (printf "#[fg=red]$batc")
   printf "%%#[fg=#ffffff] "
   bats=$(cat /sys/class/power_supply/battery/status 2> /dev/null)
-  #bats=Charging
   if [ $? == 0 ]; then
     [[ $bats -eq "Charging" || $bats -eq "Full" ]] && printf "↑" || printf "↓"
   fi
   printf " │ "
 fi
 
+# volume
 vol=$(exec amixer get Master 2> /dev/null | egrep -o "[0-9]+%" | egrep -o "[0-9]*")
 if [ $? == 0 ]; then
   printf "♪ $vol"
