@@ -1,23 +1,24 @@
-#!/bin/bash
+#!/usr/bin/env python
 
-# battery status
-batc=$(cat /sys/class/power_supply/battery/capacity 2> /dev/null)
-if [ $? == 0 ]; then
-  printf "#[fg=red]♥ "
-  ([ $batc -gt 75 ] && printf "#[fg=green]$batc") ||
-  ([ $batc -gt 60 ] && printf "#[fg=yellow]$batc") ||
-  (printf "#[fg=red]$batc")
-  printf "%%#[fg=#ffffff] "
-  bats=$(cat /sys/class/power_supply/battery/status 2> /dev/null)
-  if [ $? == 0 ]; then
-    [[ $bats -eq "Charging" || $bats -eq "Full" ]] && printf "↑" || printf "↓"
-  fi
-  printf " │ "
-fi
+import sysinfo
+import sys
 
-# volume
-vol=$(amixer get Master 2> /dev/null | egrep -o "[0-9]+%" | egrep -o "[0-9]*" | head -1)
-if [[ $? == 0 && $vol ]]; then
-  printf "♪ $vol"
-  printf " │ "
-fi
+def print_segment(text, color='white', endcolor='white'):
+  sys.stdout.write('#[fg=%s]%s#[fg=%s]' % (color, text, endcolor)) 
+  sys.stdout.write(' │ ')
+
+try:
+  bat, sta, col = sysinfo.get_battery()
+except:
+  pass
+else:
+  print_segment('%s %s' % (sta, bat), col)
+
+try:
+  vol = sysinfo.get_volume()
+except:
+  pass
+else:
+  print_segment('\N{EIGHTH NOTE} %s' % vol)
+
+sys.stdout.flush()
