@@ -22,7 +22,7 @@ def get_battery():
 
 def get_volume():
     """ Get volume """
-    return subprocess.getoutput("amixer get Master | egrep -o '[0-9]+%' | egrep -o '[0-9]*'")
+    return subprocess.getoutput("amixer get Master | egrep -o '[0-9]+%' | egrep -o '[0-9]*' | head -1")
 
 def get_frequency():
     try:
