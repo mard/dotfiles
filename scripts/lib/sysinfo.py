@@ -1,5 +1,3 @@
-import sys
-import json
 import subprocess
 
 def get_governor():

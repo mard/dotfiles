@@ -27,7 +27,6 @@
 import sysinfo
 import sys
 import json
-import subprocess
 
 def print_line(message):
     """ Non-buffered printing to stdout. """
