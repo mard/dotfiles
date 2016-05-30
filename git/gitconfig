@@ -18,3 +18,5 @@
     old = red reverse
     new = green reverse
     whitespace = blue reverse
+[push]
+    default = simple
