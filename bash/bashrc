@@ -7,7 +7,7 @@ shopt -s extglob
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-[[ `uname` == 'Linux' ]] && alias ls='ls --color=auto'
+[[ `uname` == 'Linux' ]] && alias ls='ls --color=auto --group-directories-first'
 
 #PS1='[\u@\h \W]\$ '
 
