@@ -12,6 +12,9 @@ shopt -s extglob
 #PS1='[\u@\h \W]\$ '
 
 export PATH=$PATH:~/scripts/bin:~/.gem/ruby/2.3.0/bin
+
+[[ `hostname` == 'sunjammer' ]] && export PATH=$PATH:~/scripts/bin/a73
+
 export PYTHONPATH=~/scripts/lib
 export XDG_CONFIG_HOME="$HOME/.config"
 export VDPAU_OSD=1

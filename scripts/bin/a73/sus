@@ -1,0 +1,5 @@
+#!/bin/sh
+
+scrot /tmp/lock.png
+i3lock -i /tmp/lock.png
+echo mem > /sys/power/state
