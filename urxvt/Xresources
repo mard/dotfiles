@@ -1,4 +1,4 @@
-URxvt*termName: screen-256color
+URxvt*termName: rxvt-unicode
 
 ! Scrollback position
 URxvt*scrollTtyOutput: false
