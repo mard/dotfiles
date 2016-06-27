@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Sunxi brightness control
+# Requires pwm-sunxi kernel module
+
+# Additional information:
+# https://www.olimex.com/wiki/How_to_add_pwm
+# http://pharscape.org/techblog/olimex-4-3-lcd-a13-lcd43ts-pwm-backlight-control/
+
+if [ $1 -ge 40 ] && [ $1 -le 100 ]
+then
+  echo $1 > /sys/class/pwm-sunxi/pwm0/duty_percent
+fi
