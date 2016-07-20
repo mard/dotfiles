@@ -24,3 +24,4 @@ export LSCOLORS="ExGxFxdxCxDxDxhbadExEx"
 export CLICOLOR="YES"
 export PS1="[\u\[\033[1;31m\]@\[\033[0m\]\h]\[\033[1;31m\]:\[\033[0m\]<\w>\[\033[1;31m\]\$ \[\033[0m\]"
 
+alias diary='eval $EDITOR `date "+%Y-%m-%d"`'
