@@ -18,6 +18,8 @@ set backspace=indent,eol,start
 syntax on
 set number
 set tabstop=2
+set shiftwidth=2
+set expandtab
 set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set mouse=a
