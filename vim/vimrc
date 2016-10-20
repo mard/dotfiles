@@ -24,5 +24,10 @@ set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set mouse=a
 
+map <buffer> <silent> k gk
+map <buffer> <silent> j gj
+map <buffer> <silent> <Up> gk
+map <buffer> <silent> <Down> gj
+
 command Date put!=strftime('%c')
 
