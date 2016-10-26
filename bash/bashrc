@@ -22,6 +22,7 @@ esac
 export PATH=$PATH:~/scripts/bin:~/.gem/ruby/2.3.0/bin
 
 [[ `hostname` == 'sunjammer' ]] && export PATH=$PATH:~/scripts/bin/a73
+[[ `hostname` == 's0.mydevil.net' ]] && export PATH=$PATH:~/.rvm/bin
 
 export PYTHONPATH=~/scripts/lib
 export XDG_CONFIG_HOME="$HOME/.config"
