@@ -2,4 +2,19 @@
 # ~/.bash_profile
 #
 
+export LANG=en_US
+export LANGUAGE=en_US:en_GB:en
+export LC_ADDRESS=pl_PL.UTF-8
+export LC_COLLATE=C
+export LC_CTYPE=UTF-8
+export LC_TIME=pl_PL.UTF-8
+export LC_IDENTIFICATION=pl_PL.UTF-8
+export LC_MEASUREMENT=pl_PL.UTF-8
+export LC_MESSAGES=pl_PL.UTF-8
+export LC_MONETARY=pl_PL.UTF-8
+export LC_NAME=pl_PL.UTF-8
+export LC_NUMERIC=pl_PL.UTF-8
+export LC_PAPER=pl_PL.UTF-8
+export LC_TELEPHONE=pl_PL.UTF-8
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
