@@ -2,3 +2,6 @@
 "\e[A":history-search-backward
 ## arrow down
 "\e[B":history-search-forward
+
+## color on tab autocompletion
+set colored-stats on
