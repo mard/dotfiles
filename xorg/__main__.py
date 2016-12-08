@@ -10,3 +10,6 @@ PackageInstaller.try_install('xdotool')
 PackageInstaller.try_install('pkg-config')
 
 FileInstaller.create_symlink(os.path.join(dir, 'xinitrc'), '~/.xinitrc')
+FileInstaller.create_symlink(os.path.join(dir, 'Xresources'), '~/.config/Xresources')
+run_verbose(['xrdb', os.path.expanduser('~/.config/Xresources')])
+
