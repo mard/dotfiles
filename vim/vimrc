@@ -24,6 +24,9 @@ set list
 set listchars=tab:>-,trail:.,extends:>,precedes:<
 set mouse=a
 
+set t_Co=256
+colorscheme industry
+
 map <buffer> <silent> k gk
 map <buffer> <silent> j gj
 map <buffer> <silent> <Up> gk
