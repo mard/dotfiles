@@ -19,7 +19,7 @@ esac
 
 #PS1='[\u@\h \W]\$ '
 
-export PATH=$PATH:~/scripts/bin:~/.gem/ruby/2.3.0/bin
+export PATH=$PATH:~/scripts/bin:~/scripts/bin/util
 
 [[ `hostname` == 'sunjammer' ]] && export PATH=$PATH:~/scripts/bin/a73
 [[ `hostname` == 's0.mydevil.net' ]] && export PATH=$PATH:~/.rvm/bin
