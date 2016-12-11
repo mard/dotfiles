@@ -15,6 +15,8 @@ xset r rate 250 30
 
 if [[ `hostname` == sunjammer ]]; then
     exec i3
-elif [[` hostname` == tournesol ]]; then
+elif [[ `hostname` == tournesol ]]; then
+    exec gnome-session
+elif [[ `hostname` == yendi ]]; then
     exec gnome-session
 fi
