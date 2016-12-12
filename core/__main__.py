@@ -5,4 +5,5 @@ dir = os.path.dirname(__file__)
 
 FileInstaller.create_symlink(os.path.join(dir, 'locale.conf'), '~/.config/locale.conf')
 FileInstaller.create_symlink(os.path.join(dir, 'user-dirs.dirs'), '~/.config/user-dirs.dirs')
+FileInstaller.create_symlink(os.path.join(dir, 'user-dirs.conf'), '~/.config/user-dirs.conf')
 
