@@ -11,5 +11,6 @@ PackageInstaller.try_install('pkg-config')
 
 FileInstaller.create_symlink(os.path.join(dir, 'xinitrc'), '~/.xinitrc')
 FileInstaller.create_symlink(os.path.join(dir, 'Xresources'), '~/.config/Xresources')
+FileInstaller.create_symlink(os.path.join(dir, 'imwheelrc'), '~/.imwheelrc')
 run_verbose(['xrdb', os.path.expanduser('~/.config/Xresources')])
 
