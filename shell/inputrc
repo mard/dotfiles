@@ -5,3 +5,6 @@
 
 ## color on tab autocompletion
 set colored-stats on
+
+## disable bell
+set bell-style none
