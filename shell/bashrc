@@ -7,17 +7,9 @@ shopt -s extglob
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-case "$(uname -s)" in
-  Linux|CYGWIN*|MINGW32*|MSYS*)
-    alias ls='ls --color=auto --group-directories-first'
-    alias diary='eval $EDITOR `date --date="6 hours ago" +"%Y-%m-%d"`'
-    ;;
-  FreeBSD)
-    alias diary='eval $EDITOR `date -j -v-6H +"%Y-%m-%d"`'
-    ;;
-esac
-
-#PS1='[\u@\h \W]\$ '
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
 
 export PATH=$PATH:~/scripts/bin:~/scripts/bin/util
 
