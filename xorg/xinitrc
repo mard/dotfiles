@@ -18,5 +18,5 @@ if [[ `hostname` == sunjammer ]]; then
 elif [[ `hostname` == tournesol ]]; then
     exec gnome-session
 elif [[ `hostname` == yendi ]]; then
-    exec gnome-session
+    exec startxfce4
 fi
