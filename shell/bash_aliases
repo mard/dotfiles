@@ -8,4 +8,4 @@ case "$(uname -s)" in
     ;;
 esac
 
-alias shot='scrot -d 2 -cs $HOME/media/images/screenshots/%Y-%m-%d_%H%M%S_$HOSTNAME.png'
+alias shot='scrot -d 2 -cs $HOME/media/images/screenshots/%Y-%m-%d_%H%M%S.png'
