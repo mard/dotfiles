@@ -21,8 +21,12 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export VDPAU_OSD=1
 
 export EDITOR=vim
+export PAGER=less
 export LSCOLORS="ExGxFxdxCxDxDxhbadExEx"
 export CLICOLOR="YES"
 export PS1="[\u\[\033[1;31m\]@\[\033[0m\]\h]\[\033[1;31m\]:\[\033[0m\]<\w>\[\033[1;31m\]\$ \[\033[0m\]"
 
+if [ -f ~/.rvm/scripts/rvm ]; then
+  . ~/.rvm/scripts/rvm
+fi
 
