@@ -26,6 +26,12 @@ export LSCOLORS="ExGxFxdxCxDxDxhbadExEx"
 export CLICOLOR="YES"
 export PS1="[\u\[\033[1;31m\]@\[\033[0m\]\h]\[\033[1;31m\]:\[\033[0m\]<\w>\[\033[1;31m\]\$ \[\033[0m\]"
 
+export HISTCONTROL=ignoredups:erasedups
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+shopt -s histappend
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+
 if [ -f ~/.rvm/scripts/rvm ]; then
   . ~/.rvm/scripts/rvm
 fi
