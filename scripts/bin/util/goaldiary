@@ -1,0 +1,123 @@
+#!/usr/bin/env python3
+
+import argparse, os, sys, datetime, time, operator, collections, re
+
+TIME_FORMAT_SHORT = '%Y-%m-%d'
+TIME_FORMAT_LONG = '%Y-%m-%d %H:%M'
+ENTRY_FORMAT_TITLE = '-- goaldiary entry'
+ENTRY_FORMAT_SUBTITLE = '-- {time}'
+ENTRY_FORMAT_GOAL = '## {id}: {title}'
+
+def main():
+  if args.path:
+    filelist = get_filelist(args.path)
+    goals = read_items(read_goal, filelist)
+    entries = read_items(read_entry, filelist)
+    if entries and goals:
+      process_items(goals, entries)
+    elif goals:
+      process_items(goals)
+    elif entries:
+      print('Cannot operate on entries without goals')
+  else:
+    print('No arguments. -h or --help for more information')
+
+def get_filelist(paths):
+  filelist = []
+  for path in paths:
+    if not os.path.exists(path):
+      continue
+    if not os.path.isfile(path):
+      for dirpath, dirnames, filenames in os.walk(path):
+        for filename in filenames:
+          file = os.path.join(dirpath, filename)
+          if os.path.isfile(file):
+            filelist.append(file)
+    else:
+      filelist.append(path)
+  return list(set(filelist))
+
+def read_items(method, filelist):
+  items = []
+  for file in filelist:
+    try:
+      items.append(method(file))
+    except ValueError:
+      pass
+  return sorted(items, key=operator.attrgetter('date'))
+
+def read_goal(path):
+  with open(path) as f:
+    date = f.readline().strip()
+    try:
+      datetime.datetime.strptime(date, TIME_FORMAT_SHORT)
+    except ValueError:
+      raise ValueError('Not a valid goal file')
+    id = os.path.basename(path)
+    title = f.readline().strip()
+  goal = collections.namedtuple('goal', ['id', 'date', 'title'])
+  return goal(id, date, title)
+
+def read_entry(path):
+  with open(path) as f:
+    if f.readline().strip() != ENTRY_FORMAT_TITLE:
+      raise ValueError('Not a valid entry file')
+    try:
+      date = datetime.datetime.strptime(f.readline().strip(),
+        ENTRY_FORMAT_SUBTITLE.format(time=TIME_FORMAT_LONG))
+    except ValueError:
+      raise ValueError('Not a valid entry file')
+    entries = []
+    while True:
+      line = f.readline()
+      if line.startswith('##'):
+        entries.append(read_entry_item(line, f))
+      if not line:
+        break
+    entry = collections.namedtuple('entry', ['date', 'entry'])
+    return entry(date, entries)
+
+def read_entry_item(line, f):
+  desc = []
+  id = re.search('## (.*):',line).group(1)
+  while True:
+    lp = f.tell()
+    line = f.readline()
+    if not line or line.startswith('##'):
+      f.seek(lp)
+      break
+    desc.append(line.strip())
+  entry_item = collections.namedtuple('entry_item', ['id', 'desc'])
+  return entry_item(id, ' '.join(desc).strip())
+
+def process_items(goals, entries=None):
+  print(journal_header())
+  print(''.join(journal_items(goals, entries)))
+
+def journal_header():
+  return (ENTRY_FORMAT_TITLE
+    + os.linesep + ENTRY_FORMAT_SUBTITLE
+      .format(time=time.strftime(TIME_FORMAT_LONG))
+    + os.linesep)
+
+def journal_items(goals, entries=None):
+  for goal in goals:
+    yield journal_item(goal, entries)
+
+def journal_item(goal, entries=None):
+  text = ENTRY_FORMAT_GOAL.format(id=goal.id, title=goal.title) + os.linesep
+  if entries:
+    for entry in entries:
+      for entry_item in entry.entry:
+        if goal.id == entry_item.id:
+          text += entry.date.strftime(TIME_FORMAT_LONG) + ': '
+          text += entry_item.desc + os.linesep
+  text += os.linesep
+  return text
+
+if __name__ == '__main__':
+  parser = argparse.ArgumentParser()
+  parser.add_argument('path', nargs='*', help='path to a file or directory')
+  #parser.add_argument('-d', '--debug', help='debug mode, used to diagnose corrupt files')
+  args = parser.parse_args()
+  main()
