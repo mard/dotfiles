@@ -1,38 +1,40 @@
-#
-# ~/.bashrc
-#
-
-shopt -s extglob
-
-# If not running interactively, don't do anything
+# if not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# enable extended pattern matching features
+shopt -s extglob
+
+# run aliases
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
 
+# setup global PATH, PYTHONPATH
 export PATH=$PATH:~/scripts/bin:~/scripts/bin/util
+export PYTHONPATH=~/scripts/lib
 
+# setup host-specific PATH
 [[ `hostname` == 'sunjammer' ]] && export PATH=$PATH:~/scripts/bin/a73
 [[ `hostname` == 's0.mydevil.net' ]] && export PATH=$PATH:~/.rvm/bin
 
-export PYTHONPATH=~/scripts/lib
-export XDG_CONFIG_HOME="$HOME/.config"
-export VDPAU_OSD=1
-
+# programs
 export EDITOR=vim
 export PAGER=less
+
+# shell behavior
 export LSCOLORS="ExGxFxdxCxDxDxhbadExEx"
 export CLICOLOR="YES"
 export PS1="[\u\[\033[1;31m\]@\[\033[0m\]\h]\[\033[1;31m\]:\[\033[0m\]<\w>\[\033[1;31m\]\$ \[\033[0m\]"
-
 export HISTCONTROL=ignoredups:erasedups
 export HISTSIZE=100000
 export HISTFILESIZE=100000
 shopt -s histappend
 export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND$'\n'}history -a; history -c; history -r"
 
+# start default ruby environment
 if [ -f ~/.rvm/scripts/rvm ]; then
   . ~/.rvm/scripts/rvm
 fi
 
+# freedesktop.org
+export XDG_CONFIG_HOME="$HOME/.config"
