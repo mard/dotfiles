@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=mpi
+Comment=mpv-based image viewer
+TryExec=mpi
+Exec=mpi --player-operation-mode=pseudo-gui -- %U
+Icon=mpv
+MimeType=image/x-foo;
+Actions=Graphics;2DGraphics;Viewer
