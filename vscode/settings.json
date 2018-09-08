@@ -1,0 +1,30 @@
+{
+    "html.autoClosingTags": false,
+    "editor.fontSize": 16,
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "all",
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.mouseWheelZoom": true,
+    "editor.cursorStyle": "line",
+    "workbench.colorTheme": "Default Light+",
+    "git.confirmSync": false,
+    "files.exclude": {
+        "**/__pycache__": true,
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true
+    },
+    "workbench.iconTheme": "vs-minimal",
+    "editor.cursorBlinking": "smooth",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.cursorStyle": "line",
+    "window.menuBarVisibility": "default",
+    "workbench.activityBar.visible": true,
+    "workbench.statusBar.visible": true,
+    "breadcrumbs.enabled": false,
+    "editor.renderControlCharacters": false,
+    "editor.multiCursorModifier": "alt"
+}
