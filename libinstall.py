@@ -133,20 +133,20 @@ class PacmanPackageInstaller(object):
   def install(self, package):
     return run_verbose(['sudo', 'pacman', '-S', package])
 
-class YaourtPackageInstaller(object):
-  name = 'yaourt'
+class AurPackageInstaller(object):
+  name = 'yay'
 
   def supported(self):
-    return FileInstaller.has_executable('yaourt') and FileInstaller.has_executable('sudo')
+    return FileInstaller.has_executable('yay') and FileInstaller.has_executable('sudo')
 
   def is_installed(self, package):
-    return run_silent(['yaourt', '-Q', package])[0]
+    return run_silent(['yay', '-Q', package])[0]
 
   def is_available(self, package):
-    return run_silent(['yaourt', '-Ss', package])[0]
+    return run_silent(['yay', '-Ss', package])[0]
 
   def install(self, package):
-    return run_verbose(['yaourt', '-S', package])
+    return run_verbose(['yay', '-S', package])
 
 class PipPackageInstaller(object):
   name = 'pip'
@@ -187,7 +187,7 @@ class PackageInstaller(object):
   INSTALLERS = [
     CygwinPackageInstaller(),
     PacmanPackageInstaller(),
-    YaourtPackageInstaller(),
+    AurPackageInstaller(),
     PipPackageInstaller(),
   ]
 
