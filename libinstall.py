@@ -24,6 +24,7 @@ class FileInstaller(object):
   def has_executable(program):
     return shutil.which(program) is not None
 
+  @staticmethod
   def check_exists(path):
     if os.path.exists(path):
       raise RuntimeError('Target file %s exists and is not a symlink.' % path)
@@ -60,11 +61,11 @@ class FileInstaller(object):
 
   @staticmethod
   def merge_files(sources, target, comment_prefix = None):
-    for i, member in enumerate(sources):
+    for i, _ in enumerate(sources):
       sources[i] = os.path.abspath(os.path.expanduser(sources[i]))
     target = os.path.expanduser(target)
     if target.endswith('/') or target.endswith('\\'):
-      target = os.path.join(target, os.path.basename(source))
+      target = os.path.join(target, os.path.basename(sources[0]))
     FileInstaller.remove_symlink(target)
     FileInstaller.create_dir(os.path.dirname(target))
     print('Merging %s to %s...' % (sources, target))
@@ -167,13 +168,13 @@ class PipPackageInstaller(object):
 
   def is_installed(self, package):
     return re.search(
-      '^' + re.escape(package) + '($|\s)',
+      '^' + re.escape(package) + r'($|\s)',
       run_silent([self.executable, 'list'])[1],
       re.MULTILINE) is not None
 
   def is_available(self, package):
     return re.search(
-      '^' + re.escape(package) + '($|\s)',
+      '^' + re.escape(package) + r'($|\s)',
       run_silent([self.executable, 'search', package, '--cache-dir', self.cache_dir])[1],
       re.MULTILINE) is not None
 
