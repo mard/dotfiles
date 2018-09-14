@@ -1,13 +1,12 @@
 {
     "html.autoClosingTags": false,
-    "editor.fontSize": 16,
     "editor.tabSize": 2,
     "editor.renderWhitespace": "all",
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
     "editor.mouseWheelZoom": true,
     "editor.cursorStyle": "line",
-    "workbench.colorTheme": "Default Light+",
+    "workbench.colorTheme": "Monokai",
     "git.confirmSync": false,
     "files.exclude": {
         "**/__pycache__": true,
@@ -21,10 +20,7 @@
     "editor.cursorBlinking": "smooth",
     "terminal.integrated.cursorBlinking": true,
     "terminal.integrated.cursorStyle": "line",
-    "window.menuBarVisibility": "default",
-    "workbench.activityBar.visible": true,
-    "workbench.statusBar.visible": true,
-    "breadcrumbs.enabled": false,
-    "editor.renderControlCharacters": false,
-    "editor.multiCursorModifier": "alt"
+    "editor.fontFamily": "'Envy Code R', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 16,
+    "python.workspaceSymbols.enabled": false
 }
