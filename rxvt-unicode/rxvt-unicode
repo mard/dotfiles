@@ -1,0 +1,23 @@
+URxvt*termName: rxvt-unicode-256color
+
+! Scrollback position
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
+! Scrollback buffer on secondary screen
+URxvt*secondaryScreen: 1
+
+! Font
+URxvt*font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+
+! Scrollbar
+URxvt*scrollBar: false
+
+! Cursor
+URxvt*cursorBlink: 1
+URxvt*cursorUnderline: 0
+
+! Fake transparency
+URxvt*transparent: True
+URxvt*shading: 20
