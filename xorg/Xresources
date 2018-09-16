@@ -1,5 +1,3 @@
-#include "/home/mard/.Xresources.d/rxvt-unicode"
-
 ! Colors
 *.background: Black
 *.foreground: White
