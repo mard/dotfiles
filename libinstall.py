@@ -12,7 +12,7 @@ def run_silent(p):
   return (proc.returncode == 0, out, err)
 
 def run_verbose(p):
-  return subprocess.call(p) == 0
+  return subprocess.run(p) == 0
 
 class FileInstaller(object):
   @staticmethod
