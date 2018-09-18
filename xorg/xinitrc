@@ -16,13 +16,8 @@ if [ -d ~/.Xresources.d  ]; then
 fi
 
 setxkbmap pl
-
 xset r rate 250 30
 
-#if [[ `hostname` == sunjammer ]]; then
-#    exec i3
-#elif [[ `hostname` == tournesol ]]; then
-#    exec gnome-session
-#elif [[ `hostname` == yendi ]]; then
-#    exec mate-session
-#fi
+[[ `hostname` == 'yendi' ]] && exec mate-session
+[[ `hostname` == 'tournesol' ]] && exec i3
+[[ `hostname` == 'sunjammer' ]] && exec i3
