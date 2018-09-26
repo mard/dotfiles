@@ -11,4 +11,5 @@ esac
 alias tmux='tmux -2'
 alias shot='scrot -d 2 -cs $HOME/media/images/screenshots/%Y-%m-%d_%H%M%S.png'
 alias ytdlm='youtube-dl -x --audio-format mp3 --audio-quality 3 --write-description --add-metadata --embed-thumbnail'
+alias bcdl='youtube-dl --add-metadata --embed-thumbnail'
 alias unzipall='for archive in *.zip; do 7z x -o"`basename \"$archive\" .zip`" "$archive"; done'
