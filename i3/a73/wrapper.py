@@ -60,16 +60,15 @@ if __name__ == '__main__':
             line, prefix = line[1:], ','
 
         j = json.loads(line)
-        # insert information into the start of the json, but could be anywhere
-        # CHANGE THIS LINE TO INSERT SOMETHING ELSE
         # j.insert(0, {'full_text' : '%s' % sysinfo.get_governor(), 'name' : 'gov'})
+        j.insert(0, {'full_text' : '\N{EIGHTH NOTE} %s' % sysinfo.get_volume(), 'name' : 'vol'})
+        bat, sta, col = sysinfo.get_battery()
+        j.insert(0, {'full_text' : '%s %s' % (sta, bat), 'name' : 'bat', 'color' : '%s' % col})
         rx, tx = sysinfo.get_net()
         j.insert(0, {'full_text' : '\N{DOWNWARDS ARROW} %s KB' % rx, 'name' : 'net', 'color' : '#60FF60'})
-        j.insert(1, {'full_text' : '\N{UPWARDS ARROW} %s KB' % tx, 'name' : 'net', 'color' : '#FF6060'})
+        j.insert(0, {'full_text' : '\N{UPWARDS ARROW} %s KB' % tx, 'name' : 'net', 'color' : '#FF6060'})
+        j.insert(0, {'full_text' : '%s%%' % sysinfo.get_cpu(), 'name' : 'cpu'})
         j.insert(0, {'full_text' : '%s GHz' % sysinfo.get_frequency(), 'name' : 'freq'})
         j.insert(0, {'full_text' : '%sM free' % sysinfo.get_memory(), 'name' : 'mem'})
-        bat, sta, col = sysinfo.get_battery()
-        j.insert(5, {'full_text' : '%s %s' % (sta, bat), 'name' : 'bat', 'color' : '%s' % col})
-        j.insert(5, {'full_text' : '\N{EIGHTH NOTE} %s' % sysinfo.get_volume(), 'name' : 'vol'})
-        # and echo back new encoded json
+
         print_line(prefix+json.dumps(j))

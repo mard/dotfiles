@@ -6,7 +6,6 @@ general {
 
 order += "disk /"
 order += "wireless wlan0"
-order += "load"
 order += "tztime local"
 
 wireless wlan0 {

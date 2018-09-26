@@ -31,7 +31,14 @@ def get_frequency():
         freq = int(subprocess.getoutput("cat /sys/devices/system/cpu/cpu0/cpufreq/cpuinfo_cur_freq"))
         return round(freq / float(1000000), 1)
     except:
-        return "meme"
+        return "?"
+
+def get_cpu():
+    try:
+        usage = float(subprocess.getoutput("mpstat 1 1 | grep 'Average' | awk '$12 ~ /[0-9.]+/ { print 100 - $12 }'"))
+        return int(round(usage))
+    except:
+        return -1
 
 def get_net():
     data = subprocess.getoutput("ifstat wlan0 -t 15 | grep wlan0")
