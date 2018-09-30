@@ -22,5 +22,7 @@
     "terminal.integrated.cursorStyle": "line",
     "editor.fontFamily": "'Envy Code R', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 16,
-    "python.workspaceSymbols.enabled": false
+    "python.workspaceSymbols.enabled": false,
+    "git.autofetch": true,
+    "update.channel": "none"
 }
