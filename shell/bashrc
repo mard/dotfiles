@@ -10,7 +10,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # setup global PATH, PYTHONPATH
-export PATH=$PATH:~/scripts/bin:~/scripts/bin/util
+export PATH=$PATH:~/scripts/bin:~/scripts/bin/util:~/.local/bin
 export PYTHONPATH=~/scripts/lib
 
 # setup host-specific PATH
