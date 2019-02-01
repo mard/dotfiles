@@ -179,7 +179,7 @@ class PipPackageInstaller(object):
       re.MULTILINE) is not None
 
   def install(self, package):
-    command = [self.executable, 'install', '--cache-dir', self.cache_dir, package]
+    command = [self.executable, 'install', '--user' '--cache-dir', self.cache_dir, package]
     if self.use_sudo:
       command = ['sudo'] + command
     return run_verbose(command)
