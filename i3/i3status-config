@@ -5,10 +5,13 @@ general {
 }
 
 order += "disk /"
-order += "wireless wlan0"
+order += "disk /home"
+order += "wireless wlp4s0"
+order += "battery 0"
+order += "load"
 order += "tztime local"
 
-wireless wlan0 {
+wireless wlp4s0 {
         # format_up = "W: (%quality at %essid, %bitrate) %ip"
         format_up = "%ip"
         format_down = "offline"
@@ -22,8 +25,23 @@ load {
         format = "%1min"
 }
 
+battery 0 {
+        format = "%status %percentage %remaining"
+        format_down = "No battery"
+        status_chr = "●"
+        status_bat = "○"
+        status_unk = "?"
+        status_full = "●"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
 disk "/" {
         format = "%avail"
         prefix_type = custom
 }
 
+disk "/home" {
+        format = "%avail"
+        prefix_type = custom
+}
