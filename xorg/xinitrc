@@ -19,5 +19,5 @@ setxkbmap pl
 xset r rate 250 30
 
 [[ `hostname` == 'yendi' ]] && exec mate-session
-[[ `hostname` == 'tournesol' ]] && exec i3
+[[ `hostname` == 'tournesol' ]] && exec mate-session
 [[ `hostname` == 'sunjammer' ]] && exec i3
