@@ -18,6 +18,6 @@ fi
 setxkbmap pl
 xset r rate 250 30
 
-[[ `hostname` == 'yendi' ]] && exec mate-session
+[[ `hostname` == 'yendi' ]] && export GDK_BACKEND=x11 && exec gnome-session
 [[ `hostname` == 'tournesol' ]] && exec mate-session
 [[ `hostname` == 'sunjammer' ]] && exec i3
