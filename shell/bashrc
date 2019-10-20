@@ -10,8 +10,9 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # setup global PATH, PYTHONPATH
-export PATH=$PATH:~/scripts/bin:~/scripts/bin/util:~/.local/bin
+export PATH=$PATH:~/scripts/bin:~/scripts/bin/util:~/.local/bin:~/.npm/bin
 export PYTHONPATH=~/scripts/lib
+export MANPATH="${MANPATH-$(manpath)}:~/.npm/share/man"
 
 # setup host-specific PATH
 [[ `hostname` == 'sunjammer' ]] && export PATH=$PATH:~/scripts/bin/a73
