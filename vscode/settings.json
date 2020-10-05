@@ -24,7 +24,7 @@
     "editor.fontSize": 16,
     "python.workspaceSymbols.enabled": false,
     "git.autofetch": true,
-    "update.channel": "none",
+    "update.mode": "none",
     "browserSync.config" : {
         "browser" : ["chromium"]
     }
