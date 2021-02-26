@@ -6,7 +6,7 @@
     "telemetry.enableCrashReporter": false,
     "editor.mouseWheelZoom": true,
     "editor.cursorStyle": "line",
-    "workbench.colorTheme": "Monokai",
+    "workbench.colorTheme": "Visual Studio Dark",
     "git.confirmSync": false,
     "files.exclude": {
         "**/__pycache__": true,
@@ -27,5 +27,15 @@
     "update.channel": "none",
     "browserSync.config" : {
         "browser" : ["chromium"]
-    }
+    },
+    "editor.wordWrap": "on",
+    "spellright.language": [
+        "Polish"
+    ],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext"
+    ],
+    "editor.rulers": [80,100,120]
 }
