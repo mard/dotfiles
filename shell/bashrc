@@ -42,3 +42,6 @@ fi
 
 # freedesktop.org
 export XDG_CONFIG_HOME="$HOME/.config"
+
+# azure
+export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt

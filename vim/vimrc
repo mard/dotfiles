@@ -1,12 +1,10 @@
 " Vundle
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/vundle/
-call vundle#begin()
+set nocompatible " disable vi compatibility
+filetype off " disable filetype detection
+set rtp+=~/.vim/vundle/ " set runtime path 
+call vundle#begin() " launch vundle
 
 Plugin 'VundleVim/Vundle.vim'
-
 Plugin 'scrooloose/nerdtree'
 Plugin 'airblade/vim-gitgutter'
 
@@ -15,15 +13,18 @@ filetype plugin indent on
 
 " Personal
 set backspace=indent,eol,start
-syntax on
-set number
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set list
+syntax on " enable syntax highlighting
+set number " enable line numbers
+set tabstop=2 " set tab width
+set shiftwidth=2 " set indent width
+set expandtab " use spaces for tabs
+set list " display whitespace
 set listchars=tab:>-,trail:.,extends:>,precedes:<
-set mouse=a
+set mouse=a " set terminal mouse compatibility
+set ignorecase smartcase " set search casing mode (case insensitive if lowercase)
+set hlsearch " enable search highlighting
 
+" colors
 set t_Co=256
 colorscheme industry
 

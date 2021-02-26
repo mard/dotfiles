@@ -1,8 +1,4 @@
-"^chromium*"
-  None, Up, Button4, 4
-  None, Down, Button5, 4
-
-"^code(-oss)?$"
+"^(chromium|Navigator|spotify|code(-oss)?)*"
   None, Up, Button4, 4
   None, Down, Button5, 4
 
