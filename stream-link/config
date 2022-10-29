@@ -1,0 +1,11 @@
+player="mpv"
+
+twitch-low-latency
+twitch-disable-ads
+twitch-disable-hosting
+twitch-disable-reruns
+hls-live-edge=1
+hls-segment-threads=5
+retry-max=2
+hls-playlist-reload-attempts=2
+hls-timeout=20
